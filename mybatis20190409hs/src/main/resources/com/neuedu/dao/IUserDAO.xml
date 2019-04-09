@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--使用xml实现接口的功能
+  约束：mapper
+-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--根：mapper
+    属性：namespace:映射DAO的全限定名 com.neuedu.dao.IUserDAO
+-->
+<mapper namespace="com.neuedu.dao.IUserDAO">
+    <!--这里面写什么，就写功能-->
+    <!--第一个：查询所以
+        使用标签：select
+        属性：id:属性值为dao中的方法名
+             resultType:设置返回的类型，返回的什么类型？元素类型
+     -->
+    <select id="selectAll" resultType="com.neuedu.entity.User">
+        select uid,uname,upwd,telephont,address,ulevel
+        from t_user
+    </select>
+
+
+    <!--
+       查询一条记录：
+       传参：  1)接口设置Param
+              2）xml中有一个接收参数的属性parameterType ： Integer -> int
+              3) #{uid} 你传的什么值这儿就接收什么值，整个叫做占位符
+    -->
+    <select id="selectById" parameterType="int" resultType="com.neuedu.entity.User">
+        select uid,uname,upwd,telephont,address,ulevel
+        from t_user
+        where uid=#{id}  --         由IUserDAO传过来，param里面写什么，uid这儿就得到什么
+</select>
+
+
+    <!--插入-->
+    <insert id="insertUser">
+
+        insert into t_user(uname,upwd,telephont,address,ulevel)
+        values (#{user.uname},#{user.upwd},#{user.telephont},#{user.address},#{user.ulevel})
+
+    </insert>
+
+
+</mapper>

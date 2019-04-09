@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--反写的公司网址（域名） 加上 项目名-->
+    <groupId>www.neuedu.ssm</groupId>
+    <!--项目名加上模块名-->
+    <artifactId>mybatis20190408</artifactId>
+    <!--版本 此版本不能进行更改
+         1.0 :版本号
+         SNAPSHOT：快照
+    -->
+    <version>1.0-SNAPSHOT</version>
+    <!--打包类型 不涉及网页jar  涉及到网页war-->
+    <packaging>jar</packaging>
+
+    <!--项目的依赖-->
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/junit/junit 此为说明 下方的就是依赖-->
+        <!--单元测试的jar包-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <!--mysql的jar包-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.38</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+        <!--mybatis的jar包-->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>3.4.6</version>
+            </dependency>
+
+
+
+    </dependencies>
+
+</project>
