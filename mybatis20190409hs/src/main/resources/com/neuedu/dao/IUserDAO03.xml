@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--使用xml实现接口的功能
+  约束：mapper
+-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.neuedu.dao.IUserDAO03">
+
+    <sql id="userall">
+        uid u_id,uname u_name,upwd u_pwd,telephont u_telephont,address u_address,ulevel u_level
+    </sql>
+
+    <select id="selectAll" resultType="User02">
+        select <include refid="userall"/>
+        from t_user
+    </select>
+
+
+
+    <select id="selectById" parameterType="int" resultType="User02">
+        select <include refid="userall"/>
+        from t_user
+        where uid=#{id}      --         由IUserDAO传过来，param里面写什么，uid这儿就得到什么
+</select>
+
+
+    <!--插入-->
+    <insert id="insertUser">
+
+        insert into t_user(uname,upwd,telephont,address,ulevel)
+        values (#{user.u_name},#{user.u_pwd},#{user.u_telephont},#{user.u_address},#{user.u_level})
+
+    </insert>
+
+
+</mapper>
